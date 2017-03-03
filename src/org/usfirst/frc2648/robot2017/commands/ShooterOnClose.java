@@ -9,8 +9,6 @@ public class ShooterOnClose extends Command {
 	double p_speed = .3;
 	double m_speed = 70;
 	protected void Initialize(){
-		Robot.shooter.start((double)80,.2);
-		//Robot.shooter.spin(.85);
 	}
 	
 	protected void execute(){
@@ -27,8 +25,6 @@ public class ShooterOnClose extends Command {
 		p_speed = Math.min(p_speed, 1.0);
 		Robot.shooter.spin(p_speed);
 		System.out.println(Robot.shooter.getShooterEnc().getRate());
-		
-		//Robot.shooter.runPID();
 	}
 	
 	protected boolean isFinished(){

@@ -12,14 +12,11 @@
 package org.usfirst.frc2648.robot2017.subsystems;
 
 import org.usfirst.frc2648.robot2017.RobotMap;
-import org.usfirst.frc2648.robot2017.commands.*;
-import com.ctre.CANTalon;
-import edu.wpi.first.wpilibj.CounterBase.EncodingType;
-import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.PIDController;
-import edu.wpi.first.wpilibj.PIDSourceType;
-import edu.wpi.first.wpilibj.smartdashboard.*;
+import org.usfirst.frc2648.robot2017.commands.ShooterStop;
 
+import com.ctre.CANTalon;
+
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 
@@ -30,38 +27,18 @@ public class Shooter extends Subsystem {
 
     private final CANTalon lShooter = RobotMap.shooterlShooter;
     private final Encoder encShooter = RobotMap.shooterencShooter;
-    private final PIDController shooter = RobotMap.shootershooter;
     private final CANTalon rShooter = RobotMap.shooterrShooter;
 
-
     public void initDefaultCommand() {
-       
-    }
-   public void start(double speed, double kF){
-	   	encShooter.reset();
-	   	shooter.reset();
-    	//shooter.setPID(shooter.getP(), shooter.getI(), shooter.getD(), kF);
-    	shooter.setSetpoint(speed);
-    	shooter.enable();
-    	System.out.println("Start");
-    }
-    
-    public void runPID(){
-    	double output = shooter.get();
-    	lShooter.pidWrite(output);
-    	rShooter.pidWrite(output);
+       setDefaultCommand(new ShooterStop());
     }
     
     public void spin(double speed){
     	lShooter.set(-speed);
     	rShooter.set(speed);
     }
-    public void run(double speed){
-    	//lShooter.set(speed);
-    }
     
     public void stop(){
-    	//shooter.reset();
     	spin(0);
     }
     
