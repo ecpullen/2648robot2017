@@ -2,6 +2,7 @@ package org.usfirst.frc2648.robot2017.commands;
 
 import org.usfirst.frc2648.robot2017.Robot;
 
+import edu.wpi.first.wpilibj.GenericHID.RumbleType;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class ShooterOnClose extends Command {
@@ -12,19 +13,25 @@ public class ShooterOnClose extends Command {
 	}
 	
 	protected void execute(){
-		if(Robot.shooter.getShooterEnc().getRate()<60){
+		/*if(Robot.shooter.getShooterEnc().getRate()<60){
 			p_speed += .01;
 		}
 		else{
-		if(m_speed < Robot.shooter.getShooterEnc().getRate()){
-			p_speed -= .001;
+			if(m_speed < Robot.shooter.getShooterEnc().getRate()){
+				p_speed -= .001;
+			}
+			else
+			p_speed += .001;
 		}
-		else
-		p_speed += .001;
-	}
 		p_speed = Math.min(p_speed, 1.0);
 		Robot.shooter.spin(p_speed);
 		System.out.println(Robot.shooter.getShooterEnc().getRate());
+		if(Math.abs(Robot.shooter.getShooterEnc().getRate()-70)<5){
+			Robot.oi.getj2().setRumble(RumbleType.kLeftRumble, 1);
+		}
+		else
+			Robot.oi.getj2().setRumble(RumbleType.kLeftRumble, 0);*/
+		Robot.shooter.spin(.6);
 	}
 	
 	protected boolean isFinished(){

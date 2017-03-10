@@ -16,7 +16,7 @@ public class Climber extends Subsystem {
     
     public void run(double power){
     	lClimb.set(power);
-    	rClimb.set(power);
+    	rClimb.set(-power);
     }
     public void stop(){
     	run(0);

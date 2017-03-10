@@ -11,12 +11,14 @@
 
 package org.usfirst.frc2648.robot2017.subsystems;
 
+import org.usfirst.frc2648.robot2017.Robot;
 import org.usfirst.frc2648.robot2017.RobotMap;
-import org.usfirst.frc2648.robot2017.commands.ShooterStop;
+import org.usfirst.frc2648.robot2017.commands.ShooterIdle;
 
 import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.GenericHID.RumbleType;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 
@@ -24,18 +26,31 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Shooter extends Subsystem {
+	
+	public double speed=0;
 
     private final CANTalon lShooter = RobotMap.shooterlShooter;
     private final Encoder encShooter = RobotMap.shooterencShooter;
     private final CANTalon rShooter = RobotMap.shooterrShooter;
 
     public void initDefaultCommand() {
-       setDefaultCommand(new ShooterStop());
+       setDefaultCommand(new ShooterIdle());
     }
     
     public void spin(double speed){
+    	this.speed = speed;
     	lShooter.set(-speed);
     	rShooter.set(speed);
+    }
+    
+    public void idle(){
+    	speed -= .001;
+    	speed = Math.max(0, speed);
+    	spin(speed);
+    	Robot.oi.getj2().setRumble(RumbleType.kRightRumble, 0);
+    	Robot.oi.getj2().setRumble(RumbleType.kLeftRumble, 0);
+    	
+    	//System.out.println(Robot.shooter.speed);
     }
     
     public void stop(){
