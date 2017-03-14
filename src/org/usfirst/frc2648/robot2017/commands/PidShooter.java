@@ -12,12 +12,12 @@ public class PidShooter extends PIDCommand {
 	double m_speed = 70;
 	
 	public PidShooter(double setpoint){
-		super(.0005,0,0);
+		super(1.25,.5,1);
 		PIDController pid = getPIDController();
 		pid.setAbsoluteTolerance(0);
 		pid.setOutputRange(-.007, .007);
 		pid.setSetpoint(setpoint);
-		setTimeout(3);
+		setTimeout(.1);
 		m_speed= getSetpoint();
 	}
 	
@@ -27,10 +27,11 @@ public class PidShooter extends PIDCommand {
 
 	protected void usePIDOutput(double output) {
 		if(!isTimedOut()){
-			Robot.shooter.spin(.6);
-			System.out.println(Robot.shooter.getShooterEnc().getRate());
+			Robot.shooter.spin(1);
+			//System.out.println(Robot.shooter.getShooterEnc().getRate());
 			return;
 		}
+		System.out.println(Robot.shooter.getShooterEnc().getRate());
 		p_speed += output;
 		p_speed = Math.min(1, p_speed);
 		Robot.shooter.spin(p_speed);

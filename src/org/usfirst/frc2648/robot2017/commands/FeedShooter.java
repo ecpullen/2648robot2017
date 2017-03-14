@@ -17,7 +17,7 @@ public class FeedShooter extends Command {
     }
     
     protected void execute() {
-    	Robot.shooterFeeder.feedOn(1);
+    	Robot.shooterFeeder.feedOn(.4);
     }
     
     protected boolean isFinished() {

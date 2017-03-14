@@ -13,7 +13,7 @@ public class PidDrive extends PIDCommand {
 	private double setpoint;
 
     public PidDrive(double setpoint) {
-		super(1.25, 0, 0);
+		super(1.25, 0.25, 0);
 		requires(Robot.driveTrain);
     	setSetpoint(-setpoint);
     	this.setpoint = setpoint;

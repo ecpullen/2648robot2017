@@ -68,7 +68,7 @@ public class RobotMap {
         
         driveTrainlEnc = new Encoder(3, 4, false, EncodingType.k4X);
         LiveWindow.addSensor("DriveTrain", "lEnc", driveTrainlEnc);
-        driveTrainlEnc.setDistancePerPulse(1.0/1277);
+        driveTrainlEnc.setDistancePerPulse(1.0/1277 );
         driveTrainlEnc.setPIDSourceType(PIDSourceType.kDisplacement);
         driveTrainrEnc = new Encoder(5, 6, false, EncodingType.k4X);
         LiveWindow.addSensor("DriveTrain", "rEnc", driveTrainrEnc);
