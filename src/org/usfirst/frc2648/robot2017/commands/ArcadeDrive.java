@@ -28,7 +28,7 @@ public class ArcadeDrive extends Command {
 
     protected void execute() {
     	Robot.driveTrain.arcadeDrive();
-    	//System.out.println(Robot.driveTrain.getlEnc().getDistance());
+    	System.out.println(Robot.driveTrain.getlEnc().getDistance());
     	if(DriverStation.getInstance().getMatchTime()<10){
     		//Robot.oi.getj1().setRumble(RumbleType.kRightRumble, 1);
     	}

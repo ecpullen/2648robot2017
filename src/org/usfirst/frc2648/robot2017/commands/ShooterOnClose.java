@@ -31,7 +31,7 @@ public class ShooterOnClose extends Command {
 		}
 		else
 			Robot.oi.getj2().setRumble(RumbleType.kLeftRumble, 0);*/
-		Robot.shooter.spin(.6);
+		Robot.shooter.spin(.9);
 	}
 	
 	protected boolean isFinished(){

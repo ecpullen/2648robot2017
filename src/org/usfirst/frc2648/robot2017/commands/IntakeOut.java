@@ -15,7 +15,7 @@ public class IntakeOut extends Command {
     }
 
     protected void execute() {
-    	Robot.intake.intake(-1);
+    	Robot.intake.intake(1);
     }
     
     protected boolean isFinished() {

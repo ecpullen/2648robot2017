@@ -42,6 +42,7 @@ public class PidDrive extends PIDCommand {
     	System.out.println(getPIDController().getSetpoint());
 		Robot.driveTrain.resetEnc();*/
     	Robot.driveTrain.resetGyro();
+    	Robot.driveTrain.resetEnc();
     }
  
     // Called repeatedly when this Command is scheduled to run

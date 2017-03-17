@@ -12,7 +12,7 @@ public class ClimberOn extends Command {
     }
 
     protected void execute() {
-    	Robot.climber.run(-.8);
+    	Robot.climber.run(-1);
     }
 
     protected boolean isFinished() {

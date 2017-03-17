@@ -9,10 +9,10 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 public class PidShooter extends PIDCommand {
 
 	double p_speed = .5;
-	double m_speed = 70;
+	double m_speed = 60;
 	
 	public PidShooter(double setpoint){
-		super(1.25,.5,1);
+		super(.9,0,1.25);
 		PIDController pid = getPIDController();
 		pid.setAbsoluteTolerance(0);
 		pid.setOutputRange(-.007, .007);

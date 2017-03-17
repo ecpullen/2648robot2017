@@ -48,7 +48,7 @@ public class OI {
         climberOn.whileHeld(new ClimberOn());
         intakeIn2.whileHeld(new IntakeIn());
         intakeOut.whileHeld(new IntakeOut());  
-        pidShooter.whileHeld(new PidShooter(70));
+        pidShooter.whileHeld(new PidShooter(67.25));
         
         SmartDashboard.putData("pidturn", new PidTurn(90));
         SmartDashboard.putData("piddrive", new PidDrive(5));

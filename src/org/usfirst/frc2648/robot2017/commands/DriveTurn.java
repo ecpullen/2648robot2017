@@ -16,15 +16,15 @@ public class DriveTurn extends CommandGroup {
     		i*=-1;
     	}
     	
-    		addSequential(new PidDrive(7.75));
+    		addSequential(new PidDrive(8.875));
         	addSequential(new PidTurn(90*i));
         	addSequential(new TimeDrive(.6,.75));
-        	addSequential(new TimeDrive(2.25,0));
-        	addSequential(new PidDrive(.7));
+        	addSequential(new TimeDrive(2.75,0));
+        	addSequential(new PidDrive(3));
         	addSequential(new PidTurn(-90*i));
-        	addSequential(new PidDrive(-6.5));
+        	addSequential(new PidDrive(-4.7));
         	addSequential(new PidTurn(45*i));
-        	addSequential(new TimeDrive(.75,.75));
+        	addSequential(new TimeDrive(.5,.75));
         	addParallel(new FeedShooter());
         	addParallel(new IntakeIn());
     }
