@@ -18,9 +18,15 @@ public class TimeDrive extends Command {
         // eg. requires(chassis);
     	requires(Robot.driveTrain);
     }
+    public TimeDrive(double speed){
+    	this.time = 0;
+    	this.speed = speed;
+    	requires(Robot.driveTrain);
+    }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	if(time != 0)
     	setTimeout(time);
     }
 

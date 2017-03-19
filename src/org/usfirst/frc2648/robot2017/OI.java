@@ -11,13 +11,11 @@
 
 package org.usfirst.frc2648.robot2017;
 
+import org.usfirst.frc2648.robot2017.commands.ClimbSlow;
 import org.usfirst.frc2648.robot2017.commands.ClimberOn;
 import org.usfirst.frc2648.robot2017.commands.FeedShooter;
 import org.usfirst.frc2648.robot2017.commands.IntakeIn;
-import org.usfirst.frc2648.robot2017.commands.IntakeOut;
-import org.usfirst.frc2648.robot2017.commands.PidDrive;
 import org.usfirst.frc2648.robot2017.commands.PidShooter;
-import org.usfirst.frc2648.robot2017.commands.PidTurn;
 import org.usfirst.frc2648.robot2017.commands.ShooterOnClose;
 
 import edu.wpi.first.wpilibj.XboxController;
@@ -47,11 +45,12 @@ public class OI {
         intakeIn.whileHeld(new IntakeIn());
         climberOn.whileHeld(new ClimberOn());
         intakeIn2.whileHeld(new IntakeIn());
-        intakeOut.whileHeld(new IntakeOut());  
-        pidShooter.whileHeld(new PidShooter(67.25));
+        intakeOut.whileHeld(new ClimbSlow());  
+        pidShooter.whileHeld(new PidShooter(67.8));
         
-        SmartDashboard.putData("pidturn", new PidTurn(90));
-        SmartDashboard.putData("piddrive", new PidDrive(5));
+        //SmartDashboard.putData("pidturn", new PidTurn(90));
+        //SmartDashboard.putData("piddrive", new PidDrive(5));
+        SmartDashboard.putNumber("Shooter Enc", Robot.shooter.getShooterEnc().getRate());
     }
 
     public XboxController getj1(){

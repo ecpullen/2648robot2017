@@ -29,9 +29,9 @@ public class Shooter extends Subsystem {
 	
 	public double speed=0;
 
-    private final CANTalon lShooter = RobotMap.shooterlShooter;
+    public final CANTalon lShooter = RobotMap.shooterlShooter;
     private final Encoder encShooter = RobotMap.shooterencShooter;
-    private final CANTalon rShooter = RobotMap.shooterrShooter;
+    public final CANTalon rShooter = RobotMap.shooterrShooter;
 
     public void initDefaultCommand() {
        setDefaultCommand(new ShooterIdle());
