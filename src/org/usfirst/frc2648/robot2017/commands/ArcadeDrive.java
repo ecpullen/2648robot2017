@@ -32,6 +32,7 @@ public class ArcadeDrive extends Command {
     	if(DriverStation.getInstance().getMatchTime()<10){
     		//Robot.oi.getj1().setRumble(RumbleType.kRightRumble, 1);
     	}
+    	System.out.println(Robot.driveTrain.getGyro().getAngle());
     }
     
    

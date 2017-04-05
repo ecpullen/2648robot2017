@@ -27,6 +27,7 @@ public class AutonomousCommand extends CommandGroup {
     	addParallel(new PidShooter(68));
     	addParallel(new DriveTurn());
     	//addSequential(new TimeDrive(1,-1));
+    	//addSequential(new PidTurn(90));
     }
 
 }

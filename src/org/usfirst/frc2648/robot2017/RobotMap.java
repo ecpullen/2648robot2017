@@ -35,6 +35,7 @@ public class RobotMap {
     public static CANTalon shooterFeedershooterFeeder;
     public static AnalogInput us;
     public static ADXRS450_Gyro gyro;
+    public static DigitalInput auto;
 
     public static void init() {
     	us = new AnalogInput(0);
@@ -99,5 +100,7 @@ public class RobotMap {
         
         gyro = new ADXRS450_Gyro();
         LiveWindow.addActuator("DriveTrain", "Gyro", gyro);
+        
+        auto = new DigitalInput(9);
     }
 }

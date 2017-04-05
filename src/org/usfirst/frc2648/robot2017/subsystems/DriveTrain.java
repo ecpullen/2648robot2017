@@ -45,11 +45,11 @@ public class DriveTrain extends Subsystem {
     	}
     	else
 	    	if(pSpeed < speed){
-	    		speed = Math.min(speed, pSpeed + .05);
+	    		speed = Math.min(speed, pSpeed + .1);
 	    		speed = Math.min(speed, 1);
 	    	}
 	    	else{
-	    		speed = Math.max(speed,  pSpeed - .05);
+	    		speed = Math.max(speed,  pSpeed - .1);
 	    		speed = Math.max(speed,-1);
 	    	}
     	pSpeed = speed;

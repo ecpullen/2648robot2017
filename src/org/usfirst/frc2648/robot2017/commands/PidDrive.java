@@ -7,19 +7,27 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 
 /**
  *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 public class PidDrive extends PIDCommand {
 
 	private double setpoint;
 
     public PidDrive(double setpoint) {
-		super(1.25, 0.25, 0);
+		//super(1.25, 0.25, 0);
+    	super(.3,.001,0.001);
 		requires(Robot.driveTrain);
     	setSetpoint(-setpoint);
     	this.setpoint = setpoint;
     	//setTimeout(setpoint/2.5);
-    	getPIDController().setAbsoluteTolerance(.2);
-    	getPIDController().setOutputRange(-.75, .75);
+    	getPIDController().setAbsoluteTolerance(1);
+    	//getPIDController().setOutputRange(-.75, .75);
+    	getPIDController().setOutputRange(-1, 1);
     	System.out.println(getSetpoint());
     	Robot.driveTrain.resetGyro();
     	Robot.driveTrain.resetEnc();
@@ -51,9 +59,10 @@ public class PidDrive extends PIDCommand {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	System.out.println((Robot.driveTrain.getlEnc().getDistance()-getSetpoint()));
-        return (Math.abs(Robot.driveTrain.getlEnc().getDistance() - getSetpoint())) < .2;
+    	//System.out.println((Robot.driveTrain.getlEnc().getDistance()-getSetpoint()));
+        //return (Math.abs(Robot.driveTrain.getlEnc().getDistance() - getSetpoint())) < .2;
     	//return false;
+    	return this.getPIDController().onTarget();
     }
 
     // Called once after isFinished returns true

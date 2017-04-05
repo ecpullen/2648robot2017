@@ -32,21 +32,21 @@ public class OI {
         j1 = new XboxController(0);
         j2 = new XboxController(1);
         
-        shooterOnClose = new JoystickButton(j2, 1);
-        feedShooter = new JoystickButton(j2,5);
+        //shooterOnClose = new JoystickButton(j2, 1);
+        feedShooter = new JoystickButton(j2,6);
         intakeIn = new JoystickButton(j1, 6);
         climberOn = new JoystickButton(j2,3);
-        intakeIn2 = new JoystickButton(j2, 6);
+        intakeIn2 = new JoystickButton(j2, 5);
         intakeOut = new JoystickButton(j2, 4);
         pidShooter = new JoystickButton(j2,2);
         
         feedShooter.whileHeld(new FeedShooter());
-        shooterOnClose.whileHeld(new ShooterOnClose());
+        //shooterOnClose.whileHeld(new ShooterOnClose());
         intakeIn.whileHeld(new IntakeIn());
         climberOn.whileHeld(new ClimberOn());
         intakeIn2.whileHeld(new IntakeIn());
         intakeOut.whileHeld(new ClimbSlow());  
-        pidShooter.whileHeld(new PidShooter(67.8));
+        pidShooter.whileHeld(new PidShooter(67.6));//67.8
         
         //SmartDashboard.putData("pidturn", new PidTurn(90));
         //SmartDashboard.putData("piddrive", new PidDrive(5));

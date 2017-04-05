@@ -1,7 +1,7 @@
 package org.usfirst.frc2648.robot2017.commands;
 
-import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.DriverStation.Alliance;
+import org.usfirst.frc2648.robot2017.RobotMap;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -9,24 +9,37 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class DriveTurn extends CommandGroup {
 
-	public static final boolean blue = true;
+	public static boolean blue=false;
     public DriveTurn() {
     	int i = 1;
-    	if(!blue){
-    		i*=-1;
-    	}
+    	//blue = RobotMap.auto.get();
     	
-    		addSequential(new PidDrive(8.75));
+    	if(blue){
+    		addSequential(new PidDrive(10));
         	addSequential(new PidTurn(90*i));
-        	addSequential(new TimeDrive(.6,.75));
+        	addSequential(new TimeDrive(1,.75));
         	addSequential(new TimeDrive(1.5,0));
         	addSequential(new PidDrive(3));
         	addSequential(new PidTurn(-90*i));
-        	addSequential(new PidDrive(-5.125));//4.875));
+        	addSequential(new PidDrive(-7.75));//-7.25));
         	addSequential(new PidTurn(45*i));
         	addSequential(new TimeDrive(.5,.75));
         	addParallel(new FeedShooter());
         	addParallel(new IntakeIn());
-        	addParallel(new TimeDrive(.25));
+        	//addParallel(new TimeDrive(.25));
+    	}
+    	else{
+    		addSequential(new PidDrive(10));
+        	addSequential(new PidTurn(-90));
+        	addSequential(new TimeDrive(1,.75));
+        	addSequential(new TimeDrive(1.5,0));
+        	addSequential(new PidDrive(3));
+        	addSequential(new PidTurn(90));
+        	addSequential(new PidDrive(-8.375));//-8.125));
+        	addSequential(new PidTurn(-45));
+        	addSequential(new TimeDrive(.5,.75));
+        	addParallel(new FeedShooter());
+        	addParallel(new IntakeIn());
+    	}
     }
 }

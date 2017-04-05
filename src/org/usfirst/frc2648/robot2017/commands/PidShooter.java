@@ -13,7 +13,7 @@ public class PidShooter extends PIDCommand {
 	double m_speed = 60;
 	
 	public PidShooter(double setpoint){
-		super(.008,0.00000025,0.003);
+		super(.0023,0.000003,0.02); //0.9,0.0000000025,0.003
 		//super(.008,0,0.006);
 		PIDController pid = getPIDController();
 		pid.setAbsoluteTolerance(0);
