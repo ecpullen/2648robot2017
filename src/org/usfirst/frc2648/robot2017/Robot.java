@@ -12,20 +12,24 @@ import org.usfirst.frc2648.robot2017.commands.*;
 import org.usfirst.frc2648.robot2017.subsystems.*;
 
 public class Robot extends IterativeRobot {
-
+	//Create a command for auto
     Command autonomousCommand;
-
+    //Create an object for OI (Operator Interface)
     public static OI oi;
+    //Create an object for all of your subsystems
     public static DriveTrain driveTrain;
     public static Shooter shooter;
     public static Climber climber;
     public static Gear gear;
     public static Intake intake;
     public static ShooterFeeder shooterFeeder;
+    //Create any other variables you need
     public static double time;
     
     public void robotInit() {
+    	//Always start by calling RobotMap.init();
     	RobotMap.init();
+    	//Now assign respective objects for OI and all of your subsystems
         driveTrain = new DriveTrain();
         shooter = new Shooter();
         climber = new Climber();
@@ -43,11 +47,11 @@ public class Robot extends IterativeRobot {
     public void disabledInit(){
 
     }
-
+//leave this
     public void disabledPeriodic() {
         Scheduler.getInstance().run();
     }
-
+    //leave this
     public void autonomousInit() {
         // schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
@@ -57,10 +61,11 @@ public class Robot extends IterativeRobot {
     /**
      * This function is called periodically during autonomous
      */
+    //leave this
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
     }
-
+    //leave this
     public void teleopInit() {
         // This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to

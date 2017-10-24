@@ -10,7 +10,7 @@
 
 
 package org.usfirst.frc2648.robot2017;
-
+//imports use ctrl-shift-o to automatically import so you don't have to worry about the path.
 import org.usfirst.frc2648.robot2017.commands.ClimbSlow;
 import org.usfirst.frc2648.robot2017.commands.ClimberOn;
 import org.usfirst.frc2648.robot2017.commands.FeedShooter;
@@ -24,14 +24,17 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class OI {
-
+//Here you name everything that you are going to control the robot with, ie Joysticks, JoystickButtons etc
 	private XboxController j1;
 	private XboxController j2;
 	private Button shooterOnClose, intakeIn, climberOn, feedShooter, intakeIn2, intakeOut,pidShooter;
+	
     public OI() {
+    	//Now you need to tell each of those joysticks what they are getting values from
         j1 = new XboxController(0);
         j2 = new XboxController(1);
         
+     	//Now you need to tell each of those buttons what they are getting values from (which button on which controller)
         //shooterOnClose = new JoystickButton(j2, 1);
         feedShooter = new JoystickButton(j2,6);
         intakeIn = new JoystickButton(j1, 6);
@@ -40,6 +43,8 @@ public class OI {
         intakeOut = new JoystickButton(j2, 4);
         pidShooter = new JoystickButton(j2,2);
         
+        
+        //now we assign a command to each button
         feedShooter.whileHeld(new FeedShooter());
         //shooterOnClose.whileHeld(new ShooterOnClose());
         intakeIn.whileHeld(new IntakeIn());
@@ -48,11 +53,13 @@ public class OI {
         intakeOut.whileHeld(new ClimbSlow());  
         pidShooter.whileHeld(new PidShooter(67.6));//67.8
         
+        //This part is not necessary but ut us useful for tuning pid commands.
         //SmartDashboard.putData("pidturn", new PidTurn(90));
         //SmartDashboard.putData("piddrive", new PidDrive(5));
         SmartDashboard.putNumber("Shooter Enc", Robot.shooter.getShooterEnc().getRate());
     }
 
+    //these 2 methods allow us to keep our variables private
     public XboxController getj1(){
     	return j1;
     }
