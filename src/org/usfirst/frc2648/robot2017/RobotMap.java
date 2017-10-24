@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 public class RobotMap {
-    
+    //create objects for every motor controller and sensor
     public static CANTalon driveTrainlFront;
     public static CANTalon driveTrainlRear;
     public static CANTalon driveTrainrFront;
@@ -36,12 +36,14 @@ public class RobotMap {
     public static AnalogInput us;
     public static ADXRS450_Gyro gyro;
     public static DigitalInput auto;
-
+    
     public static void init() {
+    	//Assign all of your fields.
     	us = new AnalogInput(0);
     	LiveWindow.addSensor("DriveTrain", "Ultrasonic", us);
     	
         driveTrainlFront = new CANTalon(16);
+        //This puts the motor controller on the smart dashboard so that it can be tested. I would recommend doing this
         LiveWindow.addActuator("DriveTrain", "lFront", driveTrainlFront);
         
         driveTrainlRear = new CANTalon(1);

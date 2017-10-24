@@ -16,8 +16,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2648.robot2017.Robot;
 
 public class ArcadeDrive extends Command {
-
+//basic frame of a command
     public ArcadeDrive() {
+    		//put in whatever subsystem this command uses
         requires(Robot.driveTrain);
     }
 
@@ -25,7 +26,7 @@ public class ArcadeDrive extends Command {
     protected void initialize() {
     	
     }
-
+    //this is run on every update of the command.
     protected void execute() {
     	Robot.driveTrain.arcadeDrive();
     	System.out.println(Robot.driveTrain.getlEnc().getDistance());
@@ -35,11 +36,11 @@ public class ArcadeDrive extends Command {
     	System.out.println(Robot.driveTrain.getGyro().getAngle());
     }
     
-   
+   //returns if the command is done or not.
     protected boolean isFinished() {
         return false;
     }
-
+    //this is run when the command isfinished.
     protected void end() {
     }
 
